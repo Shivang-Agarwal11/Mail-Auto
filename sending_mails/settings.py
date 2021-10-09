@@ -104,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
