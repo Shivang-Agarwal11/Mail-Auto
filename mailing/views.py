@@ -75,7 +75,7 @@ def starting(request):
         else:
             return render(request,'mailing/pdfv2.html',{'Columns':str(data.columns)[8:-19]})
 def startingmails(request):
-        global csv_file_name,colnam,val,subject,end,i,error,filename,filename1,vid,pswd
+        global csv_file_name,colnam,val,subject,end,i,error,filename,filename1,vid,pswd,mail
         colnam=request.POST['col-nam']
         startindex=i
         data=pd.read_csv(settings.MEDIA_ROOT / csv_file_name,encoding="cp1252")
