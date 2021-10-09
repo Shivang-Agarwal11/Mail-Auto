@@ -1,7 +1,6 @@
 import smtplib
 from django.http import request
-from django.shortcuts import render,redirect
-# from django.http import HttpResponse
+from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -9,7 +8,6 @@ from email.mime.base import MIMEBase
 from validate_email import validate_email
 from email import encoders
 import pandas as pd
-# from email.mime.image import MIMEImage
 from django.conf import settings
 import os
 import time
@@ -117,7 +115,7 @@ def startingmails(request):
                                     s.ehlo()
                                     s.login(mail, pswd)
                                     limit+=60
-                                if(count==startindex+90):
+                                if(count==startindex+130):
                                     break
                                 #time.sleep(5)
                         s.quit()
@@ -130,7 +128,6 @@ def startingmails(request):
                     uploaded_file=request.FILES['pdf1']
                     fs=FileSystemStorage()
                     fs.save(uploaded_file.name,uploaded_file)
-                        # print(uploaded_file.name,csv_file_name)
                     fromaddr = mail
                     body = matter
                     count=i
@@ -177,7 +174,7 @@ def startingmails(request):
                                     s.ehlo()
                                     s.login(mail, pswd)
                                     limit+=60
-                                if(count==startindex+90):
+                                if(count==startindex+130):
                                     break
                                 #time.sleep(5)
                     s.quit()
@@ -252,7 +249,7 @@ def startingmails(request):
                                     s.ehlo()
                                     s.login(mail, pswd)
                                     limit+=60
-                                if(count==startindex+90):
+                                if(count==startindex+130):
                                     break
                                 #time.sleep(5)
                     s.quit()
