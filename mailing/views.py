@@ -80,8 +80,8 @@ def startingmails(request):
         startindex=i
         data=pd.read_csv(settings.MEDIA_ROOT / csv_file_name,encoding="cp1252")
         limit=i
-        # try:
-        if(request.method=="POST"):
+        try:
+            if(request.method=="POST"):
                 print("ENTERING POST REQUEST")
                 if(val=='0'):
                         fromaddr = mail
@@ -255,8 +255,8 @@ def startingmails(request):
                     s.quit()
                     attachment.close()
                     attachment1.close()
-        # except Exception as e:
-        #     error=str(e.__class__)
-        #     print(error)
+        except Exception as e:
+            error=str(e.__class__)
+            print(error)
 
         return render(request,'mailing/continued.html',{'index':i,'error':error})
