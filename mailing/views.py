@@ -75,14 +75,13 @@ def starting(request):
         else:
             return render(request,'mailing/pdfv2.html',{'Columns':str(data.columns)[8:-19]})
 def startingmails(request):
-        
         global matter,val,pswd,mail,csv_file_name,colnam,i,subject,end,error,filename1,filename,vid,image_src
         colnam=request.POST['col-nam']
         startindex=i
         data=pd.read_csv(settings.MEDIA_ROOT / csv_file_name,encoding="cp1252")
         limit=i
-        try:
-            if(request.method=="POST"):
+        # try:
+        if(request.method=="POST"):
                 print("ENTERING POST REQUEST")
                 if(val=='0'):
                         fromaddr = mail
@@ -256,8 +255,8 @@ def startingmails(request):
                     s.quit()
                     attachment.close()
                     attachment1.close()
-        except Exception as e:
-            error=str(e.__class__)
-            print(error)
+        # except Exception as e:
+        #     error=str(e.__class__)
+        #     print(error)
 
         return render(request,'mailing/continued.html',{'index':i,'error':error})
